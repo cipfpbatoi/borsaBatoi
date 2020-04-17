@@ -1,3 +1,5 @@
+Rama de desarrollo para poner el CORS a la api
+
 # Borsa de Treball del CIP FP Batoi
 Esta será la nueva versión... (es un _fork_)
  

@@ -41,7 +41,7 @@ class OfertaController extends ApiBaseController
                 ->where('validada',true)->where('activa',true)->where('estudiando',false)->where('archivada',false));
             $ofertas = $ofertasFinalitzat->concat(OfertaResource::collection(Oferta::BelongsToCicles(Alumno::find(AuthUser()->id)->ciclos->where('pivot.validado','=',true))
                 ->where('validada',true)->where('activa',true)->where('estudiando',true)->where('archivada',false)));
-            return $ofertas->values();// values devuelve un array en vez de un objeto
+            return [ 'data' => $ofertas->values()];// values devuelve un array en vez de un objeto
         }
         if (AuthUser()->isResponsable()) return OfertaResource::collection(Oferta::BelongsToCicles(Ciclo::where('responsable',AuthUser()->id)->get())->where('archivada',$archivada));
 

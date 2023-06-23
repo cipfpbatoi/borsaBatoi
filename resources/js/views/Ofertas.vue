@@ -94,7 +94,7 @@
 
         <template slot="expand" slot-scope="props">
           <v-card flat>
-            <v-card-title>CANDIDATS INTERESSATS</v-card-title>
+            <v-card-title>CANDIDATS INTERESSATS:</v-card-title>
             <v-card-text>
               <div v-for="alum in props.item.alumnos" :key="alum.id">
                 <strong>

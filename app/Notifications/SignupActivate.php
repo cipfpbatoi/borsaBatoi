@@ -41,7 +41,7 @@ class SignupActivate extends Notification
      */
     public function toMail($notifiable)
     {
-        $url =  'https://borsatreball.cipfpbatoi.es/api/auth/signup/activate/'.$notifiable->activation_token);
+        $url =  url('/api/auth/signup/activate/'.$notifiable->activation_token);
         return (new MailMessage)
             ->subject('Confirma el teu compte')
             ->greeting('Hola')

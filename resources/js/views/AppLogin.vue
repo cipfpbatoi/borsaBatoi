@@ -82,7 +82,15 @@ export default {
               if (err.response && err.response.status==401) {
                 this.msgErr('Error 401: El email o la contraseña no son correctos');
               } else {
-                this.msgErr(err);
+                this.msgErr(err?.message || err);
+                this.msgErr(err.response.data);
+                if (err?.response?.data?.errors) {
+                  for (const clave in err.response.data.errors) {
+                    this.msgErr(clave+ ': ' + err.response.data.errors[clave]);
+                  }
+                } else {
+                  this.msgErr('Error desconegut al loguejar: ' + err);
+                }
               }
             }); // if the request fails, remove any possible user token if possible
           },

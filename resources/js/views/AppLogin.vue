@@ -82,6 +82,7 @@ export default {
               if (err.response && err.response.status==401) {
                 this.msgErr('Error 401: El email o la contraseña no son correctos');
               } else {
+                console.error('Error al loguejar: ', err);
                 this.msgErr(err?.message || err);
                 this.msgErr(err.response.data);
                 if (err?.response?.data?.errors) {
